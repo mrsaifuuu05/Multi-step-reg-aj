@@ -1,1 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
 
+-<web-app version="5.0" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee">
+
+<display-name>Multi-Step Registration Form</display-name>
+
+<!-- Step 1 Servlet Declaration -->
+
+
+
+-<servlet>
+
+<servlet-name>Step1Servlet</servlet-name>
+
+<servlet-class>com.saif.Step1Servlet</servlet-class>
+
+</servlet>
+
+
+-<servlet-mapping>
+
+<servlet-name>Step1Servlet</servlet-name>
+
+<url-pattern>/Step1Servlet</url-pattern>
+
+</servlet-mapping>
+
+<!-- Step 2 Servlet Declaration -->
+
+
+
+-<servlet>
+
+<servlet-name>Step2Servlet</servlet-name>
+
+<servlet-class>com.saif.Step2Servlet</servlet-class>
+
+</servlet>
+
+
+-<servlet-mapping>
+
+<servlet-name>Step2Servlet</servlet-name>
+
+<url-pattern>/Step2Servlet</url-pattern>
+
+</servlet-mapping>
+
+<!-- Default welcome page -->
+
+
+
+-<welcome-file-list>
+
+<welcome-file>index.html</welcome-file>
+
+</welcome-file-list>
+
+</web-app>
