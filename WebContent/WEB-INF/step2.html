@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Step 2</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            width: 100%;
+            max-width: 460px;
+        }
+        .progress {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            gap: 0;
+        }
+        .step {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 14px;
+        }
+        .step.done { background: #28a745; color: #fff; }
+        .step.active { background: #0f3460; color: #fff; }
+        .step-line { width: 60px; height: 3px; background: #28a745; }
+        .step-label { text-align: center; font-size: 11px; color: #999; margin-top: 5px; }
+        .step-wrapper { display: flex; flex-direction: column; align-items: center; }
+        .header { text-align: center; margin-bottom: 28px; }
+        .icon { font-size: 40px; display: block; margin-bottom: 8px; }
+        h1 { color: #1a1a2e; font-size: 22px; font-weight: 700; }
+        .subtitle { color: #666; font-size: 13px; margin-top: 4px; }
+        .session-info {
+            background: #f0fff4; border-left: 4px solid #28a745;
+            border-radius: 0 8px 8px 0; padding: 10px 14px;
+            margin-bottom: 20px; font-size: 13px; color: #444;
+        }
+        .session-info span { font-weight: 700; color: #1a7a35; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-weight: 600; color: #333; margin-bottom: 6px; font-size: 14px; }
+        input {
+            width: 100%; padding: 12px 16px;
+            border: 2px solid #e0e0e0; border-radius: 8px;
+            font-size: 15px; outline: none; transition: border-color 0.2s;
+            font-family: inherit;
+        }
+        input:focus { border-color: #0f3460; }
+        .btn {
+            width: 100%; padding: 14px;
+            background: linear-gradient(135deg, #0f3460, #533483);
+            color: white; border: none; border-radius: 8px;
+            font-size: 16px; font-weight: 600; cursor: pointer;
+            margin-top: 8px; font-family: inherit;
+        }
+        .btn:hover { opacity: 0.9; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress bar -->
+        <div class="progress">
+            <div class="step-wrapper">
+                <div class="step done">&#10003;</div>
+                <div class="step-label">Basic Info</div>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-wrapper">
+                <div class="step active">2</div>
+                <div class="step-label">Contact</div>
+            </div>
+        </div>
+
+        <div class="header">
+            <span class="icon">📞</span>
+            <h1>Registration – Step 2</h1>
+            <p class="subtitle">Enter your contact details</p>
+        </div>
+
+        <!-- Show session data retrieved from Step 1 -->
+        <div class="session-info">
+            &#10003; Step 1 saved &nbsp;|&nbsp; Name: <span id="nameDisplay"></span> &nbsp;|&nbsp; Email: <span id="emailDisplay"></span>
+        </div>
+
+        <form action="Step2Servlet" method="post">
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter your 10-digit mobile number" required>
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Enter your city" required>
+            </div>
+            <button type="submit" class="btn">&#10003; Complete Registration</button>
+        </form>
+    </div>
+
+    <script>
+        /* Step 1 data is stored in server-side HttpSession.
+           This message confirms the session was saved successfully. */
+        document.getElementById('nameDisplay').textContent = 'Saved in session';
+        document.getElementById('emailDisplay').textContent = 'Saved in session';
+    </script>
+</body>
+</html>
